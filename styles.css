@@ -1,0 +1,461 @@
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-size: 14px;
+		/*outline: 1px solid #444;*/
+	}
+
+	body {
+		background-color: #EAEAEA;
+		font-family: 'Lato', sans-serif;
+		color: #212121;
+		min-width: 900px;
+		max-width: 1360px;
+		margin: 0 auto;
+	}
+
+	#basket h2, input, button, textarea, select {
+    	outline: none;
+    }
+
+    button[type='submit'], input[type='submit'] {
+    	background-color: rgba(2,136,209,0.3);
+    }
+
+	 .button-left, .button-right, #backet {
+        cursor: pointer;
+    }
+
+	.wraper {
+		width: 70%;
+		text-align: center;
+		margin: 0 15%;
+		position: relative;
+	}
+	
+	.bg {
+		width: 100%;
+		min-height: 1040px;
+		background: url("images/bg.png") no-repeat;
+		background-size: 100% auto;
+		position: relative;
+	}
+
+	#admin, #cart_create, #slide_create, #enter_form, #mail {
+		display: none;
+		padding: 5px;
+		text-align: center;
+		
+	}
+
+    #enter_form, #cart_create, #slide_create, #enter_form {
+    	background-color: #ddd;
+    }
+
+	#flavor-nav, #manufacturers {
+		text-align: center;
+		padding: 15px 0;
+		width: 99%;
+	}
+
+	.cart_img_prev {
+		height: 120px;
+		margin-top: 10px;
+		cursor: -webkit-zoom-in;
+	}
+	p {
+		margin:10px;
+	}
+
+	span {
+		font-size: 12px;
+	}
+
+	ol li {
+		margin: 0px 5px 0px 22px;
+	    text-align: left;
+	    border-bottom: 1px solid;
+	    padding: 5px 0;
+	}
+
+	#flavor-nav a, #manufacturers a, .cart, #basket, #enter_button, .half_button, input, label, canvas, fieldset, form, textarea, select, button {
+		border-radius: 5px;
+	}
+
+	#flavor-nav a, #manufacturers a, #enter_button {
+		padding: 10px;
+		border: 1px solid #592CA6;
+		background: rgba(105, 119, 196, 0.6);
+		margin: 0 10px;
+		transition: all .5s;
+		cursor: pointer;
+		text-transform: uppercase;
+	}
+
+	#flavor-nav a:hover, #manufacturers a:hover {
+		color: rgba(43,12,113,1);
+	}
+
+	#flavor-nav a:hover, #manufacturers a:hover, #flavor-nav a.current, #manufacturers a.currentManuf, #enter_button:hover {
+		box-shadow: inset 0px 0px 7px 3px rgba(89,44,166,0.8);
+	}
+
+	#manufacturers {
+		width: 15%;
+		float: left;	
+	}
+
+	#manufacturers a {
+		display: block;
+		margin-bottom: 15px;
+	}
+
+	#basket, #enter_button {
+		width: 14%;
+	}
+
+	#basket {
+		padding: 5px;
+	}
+
+	.default {
+		position: absolute;
+    	right: 1%;
+    	top: 69px;
+	}
+
+	.default_adm {
+		position: absolute;
+    	right: 1%;
+    	top: 100px;
+	}
+
+	.fixed {
+		position:fixed;
+		right: 1%;
+    	top: 5px;
+	}
+
+	.basket_acc {
+		width: 400px;
+		-webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            -moz-transition: all 0.4s;
+            transition: all 0.4s;
+	}
+
+	#enter_button {
+		float: right;
+		margin: 15px 1% 0 0;
+	}
+
+	#all-flavors {
+		box-shadow: none;
+		width: 100%;
+		background-color: transparent;
+	}
+
+	.cart, #basket {
+		background-color: rgba(255,255,255, 0.8);
+	}
+
+	.cart {
+		float: left;
+		width: 31.3%;
+		margin: 0 2% 2% 0;
+		/*transition: all .5s;*/
+		cursor: -webkit-grab;
+	}
+
+	.short_description {
+		height: 6em;
+		overflow: hidden;
+	}
+
+	#flavor-nav a, #basket, #enter_button {
+		display: inline-block;
+	}
+
+	.cart, #manufacturers a, #flavor-nav a, #basket, #enter_button {
+		box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+	}
+
+	.cart_review {
+		float: none;
+		width: 700px;		
+		position: absolute;
+		background-color: rgba(255,255,255, 1);
+      	z-index: 2222;
+      	margin: 0;
+      	overflow: visible;
+      	text-align: center;
+        cursor: default;
+      	/*transition: all .5s;*/
+	}
+
+	.cart_review img:first-child {
+		width: 300px;
+		height: auto;
+		cursor: default;
+	}
+
+	#overlay, #overlay_bg {
+		position:fixed; /* всегдa перекрывaет весь сaйт */
+	    top:0;
+	    bottom: 0;
+	    left:0;
+	    right: 0;
+	}
+
+	#overlay {
+		z-index:4444; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+		overflow: auto;
+		display:none;
+	}
+
+	#overlay_bg {
+		background-color: rgba(0,0,0, 0.8);
+		cursor:pointer;
+	}
+
+    .slider  {
+        width: 100%;
+        position: relative;
+        background: linear-gradient(to right, #97A2C4, #4C4C4C 10%, #4C4C4C 90%, #97A2C4);
+    }
+    .slider-wrapper {
+    	width: 1024px;
+        position: relative;
+        overflow: hidden;
+        background: #4aa;
+        margin: 0 auto;
+    }
+    .slider-blocks-container {
+        width: 10000px;
+        position: relative;
+        text-align:center;  
+    }
+
+    .slider-block {
+        float: left;
+        /*width: 1024px;*/
+        height: 200px;
+        background: #ccc;
+        background-size: 100% 100%;
+    }
+
+        .slider-block img {
+        width: 100%;
+        
+    }
+
+    .button-left {
+        left:0px;
+        background: url(images/left.png) no-repeat, linear-gradient(to right, rgba(76,76,76, 1), rgba(255,255,255, 0.1));
+    }
+    
+    .button-right {
+        right:0px;
+        background: url(images/right.png) no-repeat, linear-gradient(to left, rgba(76,76,76, 1), rgba(255,255,255, 0.1));
+    }
+
+     .button-left, .button-right {
+        position: absolute;
+        top: 0;
+        z-index: 1110;
+        width: 5%;
+        height: 100%;
+        background-position: 50%;
+    }
+
+    #basket h2 {
+    	background: url(images/basket.png) no-repeat 10px;
+    	background-size: 40px 40px;
+    	padding: 15px 15px 15px 65px;
+    }
+
+    .basket_elements {
+    	float: right;
+    	width: 70px;
+    }  
+
+    #citem {
+	    width: 18px;
+	    height: 18px;
+	    border: 1px solid #f77;
+	    border-radius: 9px;
+	    background-color: #f77;
+	    position: absolute;
+	    top: 15px;
+	    left: 28px;
+	    text-align: center
+    }
+
+   img[title='delete'] {
+    	width: 20px;
+    	cursor: default;
+  	    margin: 0 auto;
+    }
+
+     .input_container {
+     	position: relative;
+     	text-align: left;
+     	width: 75%;
+     	margin: 5px auto;
+     }
+
+   form label {
+    	display: inline-block;
+    	position: relative;
+    	top: 26px;
+    	background-color: #eee;
+    	padding: 3px;
+    }
+
+    form input, form button, form textarea, form select {
+     	display: block;
+     	width: 100%;
+     	height: 40px;
+     	border: 4px solid #eee;
+     	box-shadow: inset 0 1px 3px rgba(204,204,204,0.95);
+    }
+
+    form textarea, form select {
+    padding-left: 100px;
+    }
+
+    form button {
+    	margin: 25px auto;
+    }
+
+    .half_button {
+    	width: 48%;
+    	display: inline-block;
+    }
+
+    #enter_form input[name="code"] {
+    	width: 70%;
+    }
+
+    canvas {
+    	width: 28%;
+    	height: 40px;
+    	border: 4px solid #eee;
+    	float: right;
+    }
+
+    #pag {
+    	width: 100%;
+    	height: 10px;
+    	position: absolute;
+    	top: 180px;
+    	text-align: center;
+    	z-index: 3333;
+    }
+
+    .pag {
+    	width: 15px;
+    	height: 15px;
+    	border-radius: 15px;
+    	background-color: rgba(255,255,255,0.9);
+    	display: inline-block;
+    	margin: 0 5px;
+    }
+
+
+@media (min-width: 1245px) and (max-width: 1365px){
+	
+}
+
+@media (min-width: 1200px) and (max-width: 1244px){
+	.slider {
+		background: linear-gradient(to right, #97A2C4, #4C4C4C 5%, #4C4C4C 95%, #97A2C4);
+	}
+}
+
+@media (min-width: 1051px) and (max-width: 1199px){
+	/* {
+		font-size: 0.95em;
+	}*/
+	#manufacturers {
+    	width: 15%;
+	}
+
+	.slider {
+		background: #4C4C4C;
+	}
+
+	.wraper {
+		margin: 0 15%;
+	}
+
+	.short_description {
+	    height: 6em;
+	}
+}
+
+@media (min-width: 960px) and (max-width: 1050px){
+	* {
+		font-size: 0.95em;
+	}
+
+	.slider {
+		background: linear-gradient(to right, #97A2C4, #4C4C4C 5%, #4C4C4C 95%, #97A2C4);
+	}
+
+	.wraper {
+		margin: 0 15%;
+	}
+
+	.slider-wrapper {
+    	width: 800px;
+	}
+
+	 .slider-block {
+        background-size: cover;
+        height: 156px;
+    }
+
+    #pag {
+   		top: 135px;
+   	}
+}
+
+@media (min-width: 0px) and (max-width: 959px){
+	* {
+		font-size: 16px;
+	}
+
+	#basket h2 {
+	    padding: 15px 15px 15px 47px;
+	    background-position-x: 5px;
+	}
+
+	#citem {
+    	left: 23px;
+    }
+
+	#manufacturers a:first-child{
+    	font-size: 10px;
+	}
+
+	.slider {
+		background: #4C4C4C;
+	}
+
+	.slider-wrapper {
+    	width: 800px;
+	}
+
+	 .slider-block {
+        background-size: cover;
+        height: 156px;
+    }
+
+    .cart {
+	    float: left;
+	    width: 48%;
+	}
+}
