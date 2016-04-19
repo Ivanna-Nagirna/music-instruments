@@ -1,6 +1,6 @@
 "Shop Musical Instruments" project
 
-Used technologies: JQuery, JQuery UI, AJAX.
+Used technologies: HTML, CSS, JQuery, JQuery UI, AJAX.
 
 To log in as an administrator enter the username: "admin" and password "1234" (only works when running from the server) or click on "enter without authorization".
 It appears admin panel that allows you to add a slide, delete or create a new card product, change the type and speed of the card animation.
