@@ -1,4 +1,4 @@
-"Shop Musical Instruments" project
+"Shop of Musical Instruments" project
 
 Used technologies: HTML, CSS, JQuery, JQuery UI, AJAX.
 
