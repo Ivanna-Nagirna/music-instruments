@@ -49,7 +49,6 @@
 		</div>
 		<div class="form-group"><button id="add_cart_button" class="btn btn__empty" value="">Add product</button></div>
 		<div class="form-group"><button id="add_slide_button" class="modal btn btn__empty" value="">Add slide</button></div>
-
 	</div>
 
 	<div id="manufacturers" class="all_manufacturers Cort Fender Pearl Roland Yamaha">
@@ -71,7 +70,7 @@
 		      <li class="placeholder">Add the product</li>
 		    </ol>
 		    <p id="order_price">Total cost: <b></b></p>
-		    <button id="order" class="btn__fill">Buy</button>
+		    <button id="order" class="btn btn__fill">Buy</button>
 		</div>
 	</div>
 
@@ -82,6 +81,7 @@
 		</p>
     	<p class="input_container">
     		<button id='send_mail' class="btn btn__fill">Send mail</button>
+    	</p>
 	</form>
 
 	<!-- МЕНЮ -->
@@ -112,8 +112,8 @@
 	        		<canvas id="canvas"></canvas>
 	        	</p-->
 	        	<div class="input_container js-input-container">
-	        		<button type="submit" value="" class="half_button half_button__left btn__fill">Enter</button>
-	        		<button type="button" value="" id="enter_quick" class="half_button half_button__right btn__empty">Login without authorization</button>
+	        		<button type="submit" value="" class="btn btn__fill half_button half_button__left">Enter</button>
+	        		<button type="button" value="" id="enter_quick" class="half_button half_button__right btn btn__empty">Login without authorization</button>
 	        	</div>
 
 	        </fieldset>
@@ -127,9 +127,9 @@
 	        		<label for="product_group">Product group: </label>
 					<select name="product_group" id="product_group" class="js-form-control">
 						<option value="percussion">Drums</option>
-						<option value="stringed">Струнные</option>
-						<option value="key">Клавишные</option>
-						<option value="wind">Духовые</option>
+						<option value="stringed">stringed</option>
+						<option value="key">Keyboard</option>
+						<option value="wind">winds</option>
 					</select>
 				</p>
 	        	<p class="input_container js-input-container">
@@ -146,7 +146,7 @@
 				</p>
 				<p class="input_container js-input-container">
 					<label for="product_description">Description: </label>
-					<textarea type="text" name="product_description" id='' value="" placeholder="Введите текст..." class="js-form-control" /></textarea>
+					<textarea type="text" name="product_description" id='' value="" placeholder="Enter text..." class="js-form-control" /></textarea>
 				</p>
 				<p class="input_container js-input-container">
 					<label for="product_price">Price: </label>
@@ -154,8 +154,8 @@
 				</p>
 
 	        	<p class="input_container js-input-container">
-	        		<button type="submit" id='add_cart' value="" class="half_button half_button__left btn__fill">Add</button>
-	        		<button type="reset" id='cancel' value="Очистить" class="half_button half_button__right btn__empty">Clean</button>
+	        		<button type="submit" id='add_cart' value="" class="half_button half_button__left btn btn__fill">Add</button>
+	        		<button type="reset" id='cancel' value="Clear" class="half_button half_button__right btn btn__empty">Clear</button>
 	        	</p>
 
 	        </fieldset>
@@ -167,14 +167,14 @@
 		 <fieldset>
         	<legend>Add slide form </legend>
 			<p class="input_container js-input-container">
-				<label for="file">Название картинки: </label>
+				<label for="file">Picture name: </label>
 				<input type="text" id="file" class="js-form-control" accept="image/jpeg,image/png,image/gif" value="" />
 			</p>
 			<!--p>
 				<textarea type="text" id='text' value="" placeholder="Введите текст слайда" /></textarea>
 			</p-->
 			<p class="input_container js-input-container">
-				<button type="submit" id='add_slide' class="btn__fill" value="">Add</button>
+				<button type="submit" id='add_slide' class="btn btn__fill" value="">Add</button>
 			</p>
 		 </fieldset>
 		</form>
