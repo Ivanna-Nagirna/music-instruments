@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
 <head>
 	<meta charset="utf-8">
 	<title>Music instruments</title>
 	<link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body class="loading">
 <div class="main-wrapper bg">
-	<!-- СЛАЙДЕР -->
+	<!-- SLIDER -->
     <div class="slider">
     	<div class="button-left"><span class="left"></span></div>
         <div class="button-right"><span class="right"></span></div>
         <div class="slider-wrapper">
-        	
          	<div id="pag"></div>
             <div class="slider-blocks-container">								
 				<div class="slider-block" id='slide_1.png'></div>
@@ -22,13 +20,10 @@
 	        </div>   
         </div>  
     </div>
-
-
 	<div id='overlay'>
 		<div id='overlay_bg'></div>
 	</div>
-
-	<!-- ПАНЕЛЬ АДМИНА -->
+	<!-- ADMIN PANEL -->
 	<div id="admin">
 		<div class="form-group js-input-container">
 			<label for="metod">Animation</label>
@@ -38,7 +33,6 @@
 				<option value="hide">hide / show</option>
 			</select>
 		</div>
-
 		<div class="form-group js-input-container">			
 			<label for="speed">Speed</label>
 			<input list="speed_options" id="speed" value="slow" class="js-form-control">
@@ -50,19 +44,16 @@
 		<div class="form-group"><button id="add_cart_button" class="btn btn__empty" value="">Add product</button></div>
 		<div class="form-group"><button id="add_slide_button" class="modal btn btn__empty" value="">Add slide</button></div>
 	</div>
-
 	<div id="manufacturers" class="all_manufacturers Cort Fender Pearl Roland Yamaha">
-		<a rel="all_manufacturers" class="currentManuf btn_filter btn_sm">Manufacturers</a>
-		<a rel="Cort" class="btn_filter">Cort</a>
-	    <a rel="Fender" class="btn_filter">Fender</a>
-	    <a rel="Pearl" class="btn_filter">Pearl</a>
-	    <a rel="Roland" class="btn_filter">Roland</a>
-	    <a rel="Yamaha" class="btn_filter">Yamaha</a>
+		<a data-rel="all_manufacturers" class="currentManuf btn_filter btn_sm">Manufacturers</a>
+		<a data-rel="Cort" class="btn_filter">Cort</a>
+	    <a data-rel="Fender" class="btn_filter">Fender</a>
+	    <a data-rel="Pearl" class="btn_filter">Pearl</a>
+	    <a data-rel="Roland" class="btn_filter">Roland</a>
+	    <a data-rel="Yamaha" class="btn_filter">Yamaha</a>
 	</div>
-
 	<button id="enter_button" class="modal" value="">Enter</button>
-
-	<!-- КОРЗИНА -->
+	<!-- BASKET -->
     <div id="basket" class="default">
 		<h2 class="">Basket<span class="count" id="citem">0</span></h2>
 		<div class="">
@@ -73,28 +64,25 @@
 		    <button id="order" class="btn btn__fill">Buy</button>
 		</div>
 	</div>
-
 	<form id="mail">
 		<p class="input_container js-input-container">
-			<label for="">Enter e-mail</label>
-			<input type="email" name="email" id="" class="js-form-control" value="" />
+			<label>Enter e-mail</label>
+			<input type="email" name="email" class="js-form-control" value="" />
 		</p>
     	<p class="input_container">
     		<button id='send_mail' class="btn btn__fill">Send mail</button>
     	</p>
 	</form>
-
-	<!-- МЕНЮ -->
+	<!-- MENU -->
 	<div id="flavor-nav" class="all electro percussion stringed wind key">
-	    <a rel="all" class="current btn_filter">All</a>
-	    <a rel="percussion" class="btn_filter">drums</a>
-	    <a rel="stringed" class="btn_filter">stringed</a>
-	    <a rel="key" class="btn_filter">Keyboard</a>
-	    <a rel="wind" class="btn_filter">winds</a>
+	    <a data-rel="all" class="current btn_filter">All</a>
+	    <a data-rel="percussion" class="btn_filter">drums</a>
+	    <a data-rel="stringed" class="btn_filter">stringed</a>
+	    <a data-rel="key" class="btn_filter">Keyboard</a>
+	    <a data-rel="wind" class="btn_filter">winds</a>
 	</div>
 
 	<div class="wraper">
-
 		<!-- FORM -->
 		<form id="enter_form">
 	        <fieldset>
@@ -107,10 +95,6 @@
 	        		<label for="password">Password: </label>
 	        		<input type="password" id="password" class="js-form-control" name="password" value="" required>
 	        	</div>
-	        	<!--p class="input_container js-input-container">
-	        		<label for="code">Введите код с картинки: </label><input type="text" id="code" name="code" value="" required  class="half_button">
-	        		<canvas id="canvas"></canvas>
-	        	</p-->
 	        	<div class="input_container js-input-container">
 	        		<button type="submit" value="" class="btn btn__fill half_button half_button__left">Enter</button>
 	        		<button type="button" value="" id="enter_quick" class="half_button half_button__right btn btn__empty">Login without authorization</button>
@@ -118,11 +102,10 @@
 
 	        </fieldset>
         </form>
-
-		<!-- ОКНО ДОБАВЛЕНИЯ ТОВАРА -->
+		<!-- ADD PRODUCT POP-UP -->
 		<form id="cart_create">
 	        <fieldset>
-	        	<legend align="center">Add product form</legend>
+	        	<legend>Add product form</legend>
 	        	<p class="input_container js-input-container">
 	        		<label for="product_group">Product group: </label>
 					<select name="product_group" id="product_group" class="js-form-control">
@@ -134,25 +117,24 @@
 				</p>
 	        	<p class="input_container js-input-container">
 	        		<label for="product_image">Picture: </label>
-					<input type="text" name="product_image" id="" value="" class="js-form-control" />
+					<input type="text" id="product_image" value="" class="js-form-control" />
 				</p>
 	        	<p class="input_container js-input-container">
 	        		<label for="product_name">Product name: </label>
-					<input type="text" name="product_name" id="" value="" class="js-form-control" />
+					<input type="text" id="product_name" value="" class="js-form-control" />
 				</p>
 	        	<p class="input_container js-input-container">
 	        		<label for="product_manufacturer">Manufacturer: </label>
-					<input type="product_manufacturer" name="product_manufacturer" id="product_manufacturer" class="js-form-control" value="" />
+					<input type="text" id="product_manufacturer" class="js-form-control" value="" />
 				</p>
 				<p class="input_container js-input-container">
 					<label for="product_description">Description: </label>
-					<textarea type="text" name="product_description" id='' value="" placeholder="Enter text..." class="js-form-control" /></textarea>
+					<textarea id="product_description" placeholder="Enter text..." class="js-form-control"></textarea>
 				</p>
 				<p class="input_container js-input-container">
 					<label for="product_price">Price: </label>
-					<input type="text" name="product_price" class="js-form-control" value="" />
+					<input type="text" id="product_price" class="js-form-control" value="" />
 				</p>
-
 	        	<p class="input_container js-input-container">
 	        		<button type="submit" id='add_cart' value="" class="half_button half_button__left btn btn__fill">Add</button>
 	        		<button type="reset" id='cancel' value="Clear" class="half_button half_button__right btn btn__empty">Clear</button>
@@ -160,324 +142,288 @@
 
 	        </fieldset>
         </form>
-
-
-		<!-- ОКНО ДОБАВЛЕНИЯ СЛАЙДА -->
+		<!-- ADD SLIDE POP-UP -->
 		<form id='slide_create'>
 		 <fieldset>
         	<legend>Add slide form </legend>
 			<p class="input_container js-input-container">
 				<label for="file">Picture name: </label>
-				<input type="text" id="file" class="js-form-control" accept="image/jpeg,image/png,image/gif" value="" />
+				<input type="file" id="file" class="js-form-control" accept="image/jpeg,image/png,image/gif" />
 			</p>
-			<!--p>
-				<textarea type="text" id='text' value="" placeholder="Введите текст слайда" /></textarea>
-			</p-->
 			<p class="input_container js-input-container">
 				<button type="submit" id='add_slide' class="btn btn__fill" value="">Add</button>
 			</p>
 		 </fieldset>
 		</form>
-
-
-		<!-- КОНТЕЙНЕР С КАРТОЧКАМИ ТОВАРА -->
-
+		<!-- CARDS -->
 		<div id="all-flavors">
-
 			<div class="cart all percussion all_manufacturers Cort">
-				<img class="cart_img_prev" src="images/drum_set.png">
+				<img alt="" class="cart_img_prev" src="images/drum_set.png">
 				<h4>Drum set</h4>
 				<h5>Cort</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Fender">
-				<img class="cart_img_prev" src="images/violin.png">
+				<img alt="" class="cart_img_prev" src="images/violin.png">
 				<h4>Violin</h4>
 				<h5>Fender</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>749 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Pearl">
-				<img class="cart_img_prev" src="images/guitar.png">
+				<img alt="" class="cart_img_prev" src="images/guitar.png">
 				<h4>Guitar</h4>
 				<h5>Pearl</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>99 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all percussion all_manufacturers Cort">
-				<img class="cart_img_prev" src="images/hi-hat.png">
+				<img alt="" class="cart_img_prev" src="images/hi-hat.png">
 				<h4>Hi-hat</h4>
 				<h5>Cort</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>129 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all percussion all_manufacturers Fender">
-				<img class="cart_img_prev" src="images/hi-hat1.png">
+				<img alt="" class="cart_img_prev" src="images/hi-hat1.png">
 				<h4>Hi-hat</h4>
 				<h5>Fender</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>130 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Pearl">
-				<img class="cart_img_prev" src="images/guitar1.png">
+				<img alt="" class="cart_img_prev" src="images/guitar1.png">
 				<h4>Guitar</h4>
 				<h5>Pearl</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>111 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Roland">
-				<img class="cart_img_prev" src="images/cello1.png">
+				<img alt="" class="cart_img_prev" src="images/cello1.png">
 				<h4>Cello</h4>
 				<h5>Roland</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>450 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all percussion all_manufacturers Fender">
-				<img class="cart_img_prev" src="images/thumb.jpg">
+				<img alt="" class="cart_img_prev" src="images/thumb.jpg">
 				<h4>Thumb</h4>
 				<h5>Fender</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>133 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Cort">
-				<img class="cart_img_prev" src="images/guitar2.png">
+				<img alt="" class="cart_img_prev" src="images/guitar2.png">
 				<h4>Guitar</h4>
 				<h5>Cort</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>830 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all key all_manufacturers Pearl">
-				<img class="cart_img_prev" src="images/synthesizer.png">
+				<img alt="" class="cart_img_prev" src="images/synthesizer.png">
 				<h4>Synthesizer</h4>
 				<h5>Pearl</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>999 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Roland">
-				<img class="cart_img_prev" src="images/harp.png">
+				<img alt="" class="cart_img_prev" src="images/harp.png">
 				<h4>Harp</h4>
 				<h5>Roland</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2010 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all key all_manufacturers Yamaha">
-				<img class="cart_img_prev" src="images/electric_piano.png">
+				<img alt="" class="cart_img_prev" src="images/electric_piano.png">
 				<h4>Electricpiano</h4>
 				<h5>Yamaha</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>1999 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Fender">
-				<img class="cart_img_prev" src="images/cello.png">
+				<img alt="" class="cart_img_prev" src="images/cello.png">
 				<h4>Cello</h4>
 				<h5>Fender</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all percussion all_manufacturers Pearl">
-				<img class="cart_img_prev" src="images/tom.png">
+				<img alt="" class="cart_img_prev" src="images/tom.png">
 				<h4>Tom</h4>
 				<h5>Pearl</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>230 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all key all_manufacturers Roland">
-				<img class="cart_img_prev" src="images/accordeon.png">
+				<img alt="" class="cart_img_prev" src="images/accordeon.png">
 				<h4>Accordeon</h4>
 				<h5>Roland</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>290 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all wind all_manufacturers Yamaha">
-				<img class="cart_img_prev" src="images/saxophone.png">
+				<img alt="" class="cart_img_prev" src="images/saxophone.png">
 				<h4>Saxophone</h4>
 				<h5>Yamaha</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>1540 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all key all_manufacturers Fender">
-				<img class="cart_img_prev" src="images/rojal.jpg">
+				<img alt="" class="cart_img_prev" src="images/rojal.jpg">
 				<h4>Royal</h4>
 				<h5>Fender</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>1890 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all key all_manufacturers Yamaha">
-				<img class="cart_img_prev" src="images/electric_piano1.png">
+				<img alt="" class="cart_img_prev" src="images/electric_piano1.png">
 				<h4>Electric piano</h4>
 				<h5>Yamaha</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>1550 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all wind all_manufacturers Roland">
-				<img class="cart_img_prev" src="images/saxophone1.png">
+				<img alt="" class="cart_img_prev" src="images/saxophone1.png">
 				<h4>Saxophone 1</h4>
 				<h5>Roland</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>1399 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all wind all_manufacturers Yamaha">
-				<img class="cart_img_prev" src="images/tuba.png">
+				<img alt="" class="cart_img_prev" src="images/tuba.png">
 				<h4>Tuba</h4>
 				<h5>Yamaha</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all percussion all_manufacturers Roland">
-				<img class="cart_img_prev" src="images/snare_drum.png">
+				<img alt="" class="cart_img_prev" src="images/snare_drum.png">
 				<h4>Snare drum</h4>
 				<h5>Roland</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all wind all_manufacturers Fender">
-				<img class="cart_img_prev" src="images/saxophone2.png">
+				<img alt="" class="cart_img_prev" src="images/saxophone2.png">
 				<h4>Saxophone 2</h4>
 				<h5>Fender</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all wind all_manufacturers Roland">
-				<img class="cart_img_prev" src="images/flute.png">
+				<img alt="" class="cart_img_prev" src="images/flute.png">
 				<h4>Flute</h4>
 				<h5>Roland</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all wind all_manufacturers Pearl">
-				<img class="cart_img_prev" src="images/flute1.png">
+				<img alt="" class="cart_img_prev" src="images/flute1.png">
 				<h4>Flute 1</h4>
 				<h5>Pearl</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all key all_manufacturers Roland">
-				<img class="cart_img_prev" src="images/electric_piano2.png">
+				<img alt="" class="cart_img_prev" src="images/electric_piano2.png">
 				<h4>Electric piano 2</h4>
 				<h5>Roland</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 			<div class="cart all stringed all_manufacturers Cort">
-				<img class="cart_img_prev" src="images/bass.png">
+				<img alt="" class="cart_img_prev" src="images/bass.png">
 				<h4>Bass</h4>
 				<h5>Cort</h5>
 				<p class="description short_description">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 				<p class="price">Price: <b>2000 $</b></p>
-				<img title='delete'>
+				<img src="images/delete.png" alt="" title='delete'>
 			</div>
-
 		</div>
 	</div>
 </div>
 <div class="icon-load"></div>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" defer></script> -->
+<script type="text/javascript" src="js/jquery-1.11.0.min.js" defer></script>
+<script type="text/javascript" src="js/jquery-ui.min.js" defer></script>
+<script type="text/javascript" src="js/script.js" defer></script>
 </body>
 </html>

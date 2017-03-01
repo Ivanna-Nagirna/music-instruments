@@ -14,43 +14,35 @@ $(document).ready(function() {
 		selectionManuf = '';
 		a = $('.currentManuf').length;
     		for ( var i = -a;  -a <= i <= a  ; ) {
-				selectionManuf = selectionManuf + '.' + $('.currentManuf').eq(i).attr("rel");
+				selectionManuf = selectionManuf + '.' + $('.currentManuf').eq(i).attr("data-rel");
 				i++;
 				if ( ( i > a ) || ( i < -a ) ) break;
 				selectionManuf = selectionManuf + ', ' + newSelection;
     		};
 	    return selectionManuf;
 	};
-
 	var newSelection = "";
 	var selectionManuf = "";
 	var selectionTotal = '';
-
 	$("#flavor-nav a, #manufacturers a").on('click', function(){
-
 		var typeFilter = $("#flavor-nav a");
 		var manufacturerFilter = $("#manufacturers a");
-
 		var metod = $('#metod').prop('value');
 		var speed = $('#speed').prop('value');
 		var a;
 		if((speed !== 'slow') && (speed !== 'fast')){speed = parseInt(speed);};
-
 	    $("#all-flavors").fadeTo(300, 0.10);
-
 	    if ($(this).is(typeFilter)){
-
 	    	$(typeFilter).removeClass("current");
 			$(this).addClass("current");
-			newSelection = "." + $(this).attr("rel");
+			newSelection = "." + $(this).attr("data-rel");
 			currentManufacturers();
 
 	    } else if( $(this).is(manufacturerFilter) ){
-	    	
 	    	if( $(this).is(manufacturerFilter[0])){
 	    		$(manufacturerFilter).removeClass("currentManuf");
 				$(this).addClass("currentManuf");
-				selectionManuf = '.' + $(this).attr("rel");
+				selectionManuf = '.' + $(this).attr("data-rel");
 	    	} else {
 		    	$(manufacturerFilter[0]).removeClass("currentManuf");
 		    	$(this).toggleClass("currentManuf");
@@ -61,7 +53,7 @@ $(document).ready(function() {
 		    		a = $('.currentManuf').length;
 		    		if( a == 0 ){
 		    			$(manufacturerFilter[0]).addClass("currentManuf");
-		    			selectionManuf = '.' + $(manufacturerFilter[0]).attr("rel");
+		    			selectionManuf = '.' + $(manufacturerFilter[0]).attr("data-rel");
 		    		} else {
 		    			currentManufacturers();
 		    		};
@@ -78,10 +70,8 @@ $(document).ready(function() {
 		} else if (metod=='fade'){
 			$("#all-flavors div").not(newSelection + selectionManuf).fadeOut( speed );
 			$(newSelection + selectionManuf).fadeIn( speed );
-		};	
-
-			$("#all-flavors").fadeTo(600, 1);
-			
+		};
+		$("#all-flavors").fadeTo(600, 1);
 	});
 
 //ПЕРЕТАСКИВАНИЕ В КОРЗИНУ
@@ -89,7 +79,6 @@ $(document).ready(function() {
 	var total_items = 0;
 	var total_price = 0;
 	var price = 0;
-	
     $( ".cart" ).draggable({
       helper: "clone",
       scroll: false
@@ -120,13 +109,12 @@ $(document).ready(function() {
       tolerance: 'pointer',
       drop: function( event, ui ) {
         $( this ).find( ".placeholder" ).remove();
-      
         $( "<li></li>" ).text( ui.draggable.find('h4').text() )
         	.append( $("#all-flavors div:first img[title=delete]").clone(true).addClass('basket_elements').css('display', 'inline') )
         	.append('<span class="basket_elements"> ' + ui.draggable.find('b').text() + '</span> ' )
         	.append('<span class="basket_elements"> ' +ui.draggable.find('h5').text() + '</span> ' )
         .appendTo( '#basket div ol' );
-    
+
     // Обновление общего количества
 		total_items++;
 		$("#citem").html(total_items);
@@ -135,7 +123,6 @@ $(document).ready(function() {
         price = parseInt(ui.draggable.find('b').text().replace(" $", ""));
 		total_price = total_price + price;
 		$("#order_price b").html(total_price + " $");
-
       }
     }).sortable({
       items: "li:not(.placeholder)",
@@ -147,19 +134,12 @@ $(document).ready(function() {
     });
 
 // Удаление карточки
-
-	$("img[title='delete']").attr({
-			"src": function() {return "images/" + this.title + ".png";},
-		})
-		.on('click',
+	$("img[title='delete']").on('click',
 			function(){
-
 				if($(this).is("#basket div ol li img")){
-
 				// Обновление количества товаров 
 					total_items--;
 					$("#citem").html(total_items);
-
 				// Обновление общей цены ПРИ УДАЛЕНИИ ТОВАРА ИЗ КОРЗИНЫ
 					price = parseInt( $(this).siblings('span').text().replace(" $", "") );
 					total_price = total_price - price;
@@ -169,7 +149,6 @@ $(document).ready(function() {
 			});
 
 //КОРЗИНА
-
 	var $basket = $("#basket");
     $(window).on('scroll', function(){
         if ( $(this).scrollTop() > 350 && ( $basket.hasClass("default") || $basket.hasClass("default_adm") ) ){
@@ -177,7 +156,6 @@ $(document).ready(function() {
         } else if( $(this).scrollTop() <= 350 && $basket.hasClass("fixed") && ( $('#admin').css('display') == 'block' ) ){
         	$basket.removeClass("fixed").addClass("default_adm");
         }
-
         else if( $(this).scrollTop() <= 350 && $basket.hasClass("fixed")) {
             $basket.removeClass("fixed").addClass("default");
         }
@@ -191,11 +169,8 @@ $(document).ready(function() {
 	$('.slider-block').append(slider_block_bg);
 
 //модальное окно
-
 	var new_slide;
-	
 	var review;
-
 	function modal(review){
 		var winH = $(window).height();
 		var winW = $(window).width();
@@ -203,7 +178,6 @@ $(document).ready(function() {
 		$('#overlay').prepend( review.addClass('cart_review').css('display', 'block'));
 		$('body').css('overflow', 'hidden');
     	$('#overlay').fadeIn(400);
-    	
     	$('.cart_review').css({
     				left: winW/2-$(review).width()/2});
     	$(review).css({opacity: 1, top: function(){
@@ -216,7 +190,6 @@ $(document).ready(function() {
 	};
 
     $('.cart_img_prev, #add_cart_button, #add_slide_button, #enter_button, #order').on('click', function() {
-    	
 		if( $(this).is(".cart_img_prev") ){
 			review = $(this).parent('div').clone(true).removeClass('ui-draggable ui-draggable-handle').removeData('draggable').unbind();
 			review.find('p').removeClass('short_description');
@@ -238,7 +211,6 @@ $(document).ready(function() {
     			review.find('#send_mail').attr('href', "mailto:" + $(this).val() );
     		});
     	};
-	
 	   modal(review);  
     });
 
@@ -260,7 +232,6 @@ $(document).ready(function() {
     	new_cart.addClass( review.find('input[name="product_manufacturer"]' ).val() ).find('h5').text( review.find( 'input[name="product_manufacturer"]').val() );
     	new_cart.find('.short_description').text( review.find(' textarea[name="product_description"] ').val() );
     	new_cart.find('.price b').text( review.find( 'input[name="product_price"]' ).val() + ' $');
-		
     	$("#all-flavors").prepend(new_cart);
     });
 
@@ -276,7 +247,6 @@ $(document).ready(function() {
 	    $('#overlay_bg, img[title="delete"]').on('click', modal_close);
 
 	// СЛАЙДЕР
-
 		var sliderWrapperW = $('.slider-wrapper').width();
 		$('.slider-block').width(sliderWrapperW);
 		$('.slider-block').each(function(){
@@ -286,13 +256,10 @@ $(document).ready(function() {
 		function slide_move(){
 			pag_active++;
 			if(pag_active == slider_blocks_length){ pag_active = 0; };
-
 			$(".slider-blocks-container .slider-block").eq(0).clone(true).appendTo(".slider-blocks-container");
 			$(".slider-blocks-container").animate({"left": '-' + sliderWrapperW + 'px'}, 400);
-			
 			$('.pag').css('background-color', '' );
 			$('.pag').eq(pag_active).css('background-color', 'rgba(255,255,255,0.3)' );
-			
 			setTimeout(function () {
 		        $(".slider-blocks-container .slider-block").eq(0).remove();
 				$(".slider-blocks-container").css({"left":"0px"});
@@ -302,7 +269,6 @@ $(document).ready(function() {
 		var slider_blocks_length = $(".slider-block").length;
 		var pag_active = 0;
 		$('.pag').eq(0).css('background-color', 'rgba(255,255,255,0.3)' );
-
 		var slide_go = setInterval(slide_move, 300000);
 
 
@@ -313,15 +279,12 @@ $(document).ready(function() {
 
 	    $(".button-right").click(slide_move);
 	    $(".button-left").click(function(){
-	    	
 	    	pag_active--;
 			if(pag_active == -1){ pag_active = slider_blocks_length-1; };
-
 	    	$(".slider-blocks-container").css({"left":'-' + sliderWrapperW + 'px'});
 	    	$(".slider-blocks-container .slider-block").eq(-1).clone(true).prependTo(".slider-blocks-container");
 	        $(".slider-blocks-container .slider-block").eq(-1).remove();   
 	        $(".slider-blocks-container").animate({"left":"0px"}, 400);
-
 	        $('.pag').css('background-color', '' );
 			$('.pag').eq(pag_active).css('background-color', 'rgba(255,255,255,0.3)' );
 	    });
@@ -350,13 +313,11 @@ $(document).ready(function() {
 	 		$( ".js-form-control" ).eq(i).animate({"padding-left":"5px"}, 400);
 		};
 	}
-	
 	$( ".js-form-control" ).on( "focusin", function(event) {
  		$( this ).css( "box-shadow", "none" );
  		$(this).parent('.js-input-container').find('label').animate({"top":"4px"}, 400);
  		$(this).animate({"padding-left":"5px"}, 400);
 	});
-
 	$( ".js-form-control" ).on( "focusout", function() {
 		if( $(this).val() ){} else {
 	 		$( this ).css( "box-shadow", "" );
@@ -368,15 +329,11 @@ $(document).ready(function() {
  	});
 
 // ПРОВЕРКА ФОРМЫ
-
 	$('form').on('submit', function(e){
 		e.preventDefault();
 		if( $(this).is('#enter_form') ){
-			
 			var l = $('#login').val();
 			var p = $('#password').val();
-			//var c = $('#code').val();
-
 			$.getJSON('js/users.json', {}, function (json) {
 				var users = json.user.length;
 				for(var i = 0; i < users; i++ ){
@@ -388,25 +345,22 @@ $(document).ready(function() {
 						modal_close();
 						break;
 					} else {
-							alert ( 'Не правильно введен логин или пароль. Повторите попытку.');
-							break;
+						alert ( 'Не правильно введен логин или пароль. Повторите попытку.');
+						break;
 					};
 				};
 
 				if( i == users ) {
-						alert ( 'Не правильно введен логин. Повторите попытку.');
-					};				
+					alert ( 'Не правильно введен логин. Повторите попытку.');
+				};				
 			});
 		} else {
 			modal_close();
 		};
-		
 	});
 
 // ВХОД БЕЗ РЕГИСТРАЦИИ
 	$('#enter_quick').on('click', function(){
-
-
 		$('#admin, .cart img[title="delete"]').css('display', 'block');
 		$basket.removeClass("default").addClass("default_adm");
 		modal_close();
